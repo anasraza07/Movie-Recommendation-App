@@ -43,17 +43,18 @@
             tableElem.appendChild(tr)
             const td1 = document.createElement("td");
             td1.innerHTML = `
-            <div class="description">
-            <img src="https://image.tmdb.org/t/p/w45${movie.poster_path}" alt="loading...">
-            <div>
-            <div id="movie-title">${movie.title}</div>
-            <div class="lastLine">
-            <div id="certi">${movie.certification}</div>
-            <div>${movie.genres}</div>
+            <div class="movie-td">
+                <div class="img-div">
+                    <img src="https://image.tmdb.org/t/p/w45${movie.poster_path}" alt="loading...">
+                </div>
+                <div class="description">
+                    <div id="movie-title">${movie.title}</div>
+                    <div class="lastLine">
+                        <div id="certi">${movie.certification}</div>
+                        <div>${movie.genres.join(", ")}</div>
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-
             `
             tr.appendChild(td1);
             const date = new Date(movie.release_date);
@@ -80,6 +81,6 @@
 
     // search();
     // const allSelection = document.getElementsByClassName("user-select");
-    
+
     btn.addEventListener("click", search)
 })(); 

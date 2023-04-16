@@ -10,20 +10,20 @@ tbody td {
     /* text-align: center; */
 }
 
-tr {
-    text-align: start;
-}
-
-.description {
+.movie-td {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+
 }
-.lastLine{
+.description{
+    margin-left: 10px;
+}
+.lastLine {
     display: flex;
 }
-#certi{
+
+#certi {
     border: 1px solid black;
     border-radius: 5px;
-    /* margin: 12px    ; */
+    margin-right: 12px;
 }
