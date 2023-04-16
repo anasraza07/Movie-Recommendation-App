@@ -6,18 +6,16 @@ table {
     text-align: start;
 }
 
-tbody td {
-    /* text-align: center; */
-}
-
 .movie-td {
     display: flex;
     align-items: center;
 
 }
-.description{
+
+.description {
     margin-left: 10px;
 }
+
 .lastLine {
     display: flex;
 }
