@@ -71,7 +71,8 @@
         const langQuery = langElem.value;
         const ratingQuery = ratingElem.value;
         const results = movies.filter(function (movie) {
-            return movie.genres.toString().includes(genreQuery) && new Date(movie.release_date).getFullYear() == yearQuery && movie.original_language === langQuery && movie.vote_average == ratingQuery
+            return genreQuery === "all" && yearQuery === "all" && langQuery === "all" && ratingQuery === "all" ||
+                (movie.genres.toString().includes(genreQuery) && new Date(movie.release_date).getFullYear() == yearQuery && movie.original_language === langQuery && movie.vote_average == ratingQuery)
         })
         displayResults(results)
         // console.log(results1)
@@ -79,6 +80,6 @@
 
     // search();
     // const allSelection = document.getElementsByClassName("user-select");
-    btnElem.addEventListener("click", search)
-
+    
+    btn.addEventListener("click", search)
 })(); 
