@@ -1,13 +1,29 @@
 table {
     width: 100%;
 }
-#movie-heading{
+
+#movie-heading {
     text-align: start;
-}
-tbody td {
-    text-align: center;
 }
 
-.movie-data {
+tbody td {
+    /* text-align: center; */
+}
+
+tr {
     text-align: start;
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.lastLine{
+    display: flex;
+}
+#certi{
+    border: 1px solid black;
+    border-radius: 5px;
+    /* margin: 12px    ; */
 }

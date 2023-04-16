@@ -6,12 +6,15 @@
     const yearElem = document.getElementById("yearSelect");
     const langElem = document.getElementById("langSelect");
     const ratingElem = document.getElementById("ratingSelect");
-
+    const btnElem = document.getElementById("btn");
     const tableElem = document.getElementById("tableBody");
 
+    // function onLoad() {
     movies.forEach(function (m) {
         const optionElem = document.createElement("option")
-        optionElem.innerHTML = `${m.genres.toString()}`;
+        for (var i = 0; i < m.genres.length; i++) {
+            optionElem.innerHTML = `${m.genres[i]}`;
+        }
         genreElem.appendChild(optionElem);
 
         const optionElem1 = document.createElement("option")
@@ -27,6 +30,7 @@
         ratingElem.appendChild(optionElem3);
 
     });
+    // }
 
     function displayResults(results) {
         tableElem.innerHTML = ""
@@ -38,7 +42,19 @@
             tr.appendChild(td);
             tableElem.appendChild(tr)
             const td1 = document.createElement("td");
-            td1.innerHTML = `<div class="movie-data">${movie.title}</div>`
+            td1.innerHTML = `
+            <div class="description">
+            <img src="https://image.tmdb.org/t/p/w45${movie.poster_path}" alt="loading...">
+            <div>
+            <div id="movie-title">${movie.title}</div>
+            <div class="lastLine">
+            <div id="certi">${movie.certification}</div>
+            <div>${movie.genres}</div>
+            </div>
+            </div>
+            </div>
+
+            `
             tr.appendChild(td1);
             const date = new Date(movie.release_date);
             const year = date.getFullYear();
@@ -55,23 +71,14 @@
         const langQuery = langElem.value;
         const ratingQuery = ratingElem.value;
         const results = movies.filter(function (movie) {
-            // console.log(allSelection)
-            return (movie.genres.toString().includes(genreQuery) && new Date(movie.release_date).getFullYear() === yearQuery)
-            // return true;
-            // console.log(results)
-            // return true;
-            // || movie.genres.toString().includes(genreQuery)) return true;
-            // return genreQuery === "all" || yearQuery === "all" || langQuery === "all" ||
-            //     ratingQuery === "all";
-            // && movie.genres.toString().includes(genreQuery) && movie.release_date.includes(yearQuery)))
+            return movie.genres.toString().includes(genreQuery) && new Date(movie.release_date).getFullYear() == yearQuery && movie.original_language === langQuery && movie.vote_average == ratingQuery
         })
         displayResults(results)
+        // console.log(results1)
     }
-    search();
-    // const allSelection = document.getElementsByClassName("user-select");
-    // allSelection.addEventListener("change", search)
 
-    // if (genreElem === "all" && yearElem === "all" && langElem === "all" &&
-    //     ratingElem === "all") {
+    // search();
+    // const allSelection = document.getElementsByClassName("user-select");
+    btnElem.addEventListener("click", search)
 
 })(); 
