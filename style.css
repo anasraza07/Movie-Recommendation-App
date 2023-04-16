@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+}
+#movie-heading{
+    text-align: start;
+}
+tbody td {
+    text-align: center;
+}
+
+.movie-data {
+    text-align: start;
+}

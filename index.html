@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-controls">
+            <label for="genre-select">Genre</label>
+            <select name="genre" class="user-select" id="genreSelect">
+                <option value="all"></option>
+                <option value="all">All</option>
+                <!-- <option value="all">Action</option>
+                    <option value="all">Science Fiction</option> -->
+                </select>
+                <label for="year-select">Year</label>
+                <select name="year" class="user-select" id="yearSelect">
+                    <option value="all"></option>
+                    <option value="all">All</option>
+                <!-- <option value="all">abc</option>
+                <option value="all">def</option> -->
+            </select>
+            <label for="lang-select">Language</label>
+            <select name="lang" class="user-select" id="langSelect">
+                <option value="all"></option>
+                <option value="all">All</option>
+                <!-- <option value="all">abc</option>
+                <option value="all">def</option> -->
+            </select>
+            <label for="rating-select">Rating</label>
+            <select name="rating" class="user-select" id="ratingSelect">
+                <option value="all"></option>
+                <option value="all">All</option>
+                <!-- <option value="all">def</option>
+                <option value="all">abc</option> -->
+            </select>
+        </div>
+        <hr>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th id="movie-heading">Movie</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- <tr id="bodyRow"> -->
+                        <!-- <td>1</td>
+                        <td>anas</td>
+                        <td>2020</td> -->
+                    <!-- </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
