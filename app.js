@@ -130,8 +130,9 @@
         // console.log(results1)
     }
 
+    search();
     // search();
     // const allSelection = document.getElementsByClassName("user-select");
 
-    btn.addEventListener("click", search)
+    // btn.addEventListener("click", search)
 })(); 
