@@ -1,15 +1,41 @@
+#first-three-inputs {
+    margin: 12px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.select-group {
+    width: 30%;
+}
+
+#rating-group {
+    margin: 8px 23px;
+}
+
+.user-select {
+    width: 100%
+}
+
+select {
+    padding: 8px;
+}
+
+hr {
+    margin: 12px;
+}
+
+/* 
 table {
     width: 100%;
-}
+} */
 
-#movie-heading {
+/* #movie-heading {
     text-align: start;
-}
-
+} */
+/* 
 .movie-td {
     display: flex;
     align-items: center;
-
 }
 
 .description {
@@ -24,4 +50,57 @@ table {
     border: 1px solid black;
     border-radius: 5px;
     margin-right: 12px;
+} */
+
+.headings,
+#movie-row {
+    margin: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+/* .movies{
+    display: flex;
+    justify-content: space-around;
+} */
+
+/* .bg-red {
+    border: 2px solid red;
+} */
+
+.w-6 {
+    width: 6%;
+}
+
+.flex,
+.hor-center {
+    display: flex;
+    justify-content: center;
+
+}
+
+@media screen and (max-width:500px) {
+    select {
+        padding: 4px;
+    }
+
+    .headings,
+    #movie-row {
+        margin: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    hr{
+        margin: 6px;
+    }
+
+    .w-80 {
+        width: 60%;
+    }
 }

@@ -7,42 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Recommendation App</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
 </head>
 
-<body>
+<body >
     <div class="container">
         <div class="input-controls">
-            <label for="genre-select">Genre</label>
-            <select name="genre" class="user-select" id="genreSelect">
-                <option value="all">All</option>
-                <!-- <option value="all">Action</option>
-                    <option value="all">Science Fiction</option> -->
-                </select>
-                <label for="year-select">Year</label>
-                <select name="year" class="user-select" id="yearSelect">
-                    <option value="all">All</option>
-                <!-- <option value="all">abc</option>
-                <option value="all">def</option> -->
-            </select>
-            <label for="lang-select">Language</label>
-            <select name="lang" class="user-select" id="langSelect">
-                <option value="all">All</option>
-                <!-- <option value="all">abc</option>
-                <option value="all">def</option> -->
-            </select>
-            <label for="rating-select">Rating</label>
-            <select name="rating" class="user-select" id="ratingSelect">
-                <option value="all">All</option>
-                <!-- <option value="all">def</option>
-                <option value="all">abc</option> -->
-            </select>
-            <button id="btn">Searh</button>
-            
+            <div id="first-three-inputs">
+                <div class="select-group">
+                    <label for="genre-select">GENRE </label>
+                    <select name="genre" class="user-select" id="genre-select"></select>
+                </div>
+
+                <div class="select-group">
+                    <label for="year-select">YEAR</label>
+                    <select name="year-select" class="user-select" id="year-select"></select>
+                </div>
+
+                <div class="select-group">
+                    <label for="lang-select">LANGUAGE</label>
+                    <select name="lang-select" class="user-select" id="lang-select"></select>
+                </div>
+            </div>
+
+            <div id="rating-group">
+                <label for="rating-select">RATING</label>
+                <select name="rating-select" class="user-select" id="rating-select"></select>
+            </div>
+            <!-- <button id="btn">Searh</button> -->
         </div>
+
         <hr>
+
         <div class="table">
-            <table>
+            <div class="headings">
+                <div class="bg-red w-6 flex hor-center" id="first">RANK</div>
+                <div class="bg-red w-80" id="second">MOVIE</div>
+                <div class="bg-red w-6 flex hor-center" id="third">YEAR</div>
+            </div>
+            <hr>
+
+            <div id="movies-container">
+                <div class="movie-row" id="movie-row">
+                    <!-- <div class="bg-red w-6 flex hor-center" id="rank">1</div>
+                    <div class="bg-red w-80" id="movie">Godziulla</div>
+                    <div class="bg-red w-6 flex hor-center" id="year">2001</div>
+                </div> -->
+                <!-- <hr> -->
+            </div>
+            <!-- <table>
                 <thead>
                     <tr>
                         <th>Rank</th>
@@ -50,14 +63,14 @@
                         <th>Year</th>
                     </tr>
                 </thead>
-                <tbody id="tableBody">
-                    <!-- <tr id="bodyRow"> -->
-                        <!-- <td>1</td>
+                <tbody id="tableBody"> -->
+            <!-- <tr id="bodyRow"> -->
+            <!-- <td>1</td>
                         <td>anas</td>
                         <td>2020</td> -->
-                    <!-- </tr> -->
-                </tbody>
-            </table>
+            <!-- </tr> -->
+            <!-- </tbody>
+            </table> -->
         </div>
     </div>
 </body>
