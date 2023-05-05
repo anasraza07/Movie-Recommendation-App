@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&family=IBM+Plex+Sans&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
 #first-three-inputs {
     margin: 12px;
     display: flex;
     justify-content: space-around;
+}
+
+label {
+    font-family: 'Bree Serif', serif;
+    margin: 16px 0;
 }
 
 .select-group {
@@ -13,46 +24,33 @@
 }
 
 .user-select {
-    width: 100%
+    width: 100%;
+    font-size: 1rem;
+    /* font-family: 'Baloo Bhai 2', cursive; */
 }
 
 select {
+    margin: 3px 0;
     padding: 8px;
+    /* border: none; */
 }
 
 hr {
     margin: 12px;
 }
 
-/* 
-table {
-    width: 100%;
+/* .headings {
 } */
 
-/* #movie-heading {
-    text-align: start;
-} */
-/* 
-.movie-td {
+.headings {
+    margin: 10px 20px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    font-family: 'Bree Serif', serif;
+
 }
 
-.description {
-    margin-left: 10px;
-}
-
-.lastLine {
-    display: flex;
-}
-
-#certi {
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-right: 12px;
-} */
-
-.headings,
 #movie-row {
     margin: 10px 20px;
     display: flex;
@@ -63,15 +61,6 @@ table {
 .w-80 {
     width: 80%;
 }
-
-/* .movies{
-    display: flex;
-    justify-content: space-around;
-} */
-
-/* .bg-red {
-    border: 2px solid red;
-} */
 
 .w-6 {
     width: 6%;
@@ -84,6 +73,40 @@ table {
 
 }
 
+.font {
+    font-family: 'Bree Serif', serif;
+}
+
+#movie {
+    display: flex;
+    align-items: center;
+}
+
+#description {
+    margin: 0 20px;
+}
+
+#title {
+    color: rgba(47, 83, 149, 0.991);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#second-line {
+    margin: 8px 0;
+    color: rgb(111, 110, 110);
+}
+
+#certification {
+    border: 2px solid silver;
+    padding: 2px 3px;
+    border-radius: 6px;
+}
+
+#genres {
+    margin: 0 4px;
+}
+
 @media screen and (max-width:500px) {
     select {
         padding: 4px;
@@ -91,16 +114,58 @@ table {
 
     .headings,
     #movie-row {
-        margin: 10px 15px;
+        margin: 10px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    hr{
+
+    hr {
         margin: 6px;
     }
 
     .w-80 {
-        width: 60%;
+        width: 70%;
+    }
+
+    #title {
+        font-size: 0.9rem;
+    }
+
+    #description {
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .user-select {
+        font-size: 0.8rem;
+        /* font-family: 'Baloo Bhai 2', cursive; */
+    }
+
+    label {
+        margin: 8px 0;
+        font-size: 0.9rem;
+    }
+
+    #second-line {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #certification {
+        border: 2px solid silver;
+        padding: 1px 3px;
+        border-radius: 6px;
+        align-self: flex-start;
+    }
+
+    #genres {
+        margin: 3px 0;
+    }
+    #movie-row{
+        font-size: .8rem;
     }
 }

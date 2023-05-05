@@ -12,27 +12,36 @@
 
 <body >
     <div class="container">
+        <h1>Movie Recommendation App</h1>
         <div class="input-controls">
             <div id="first-three-inputs">
                 <div class="select-group">
                     <label for="genre-select">GENRE </label>
-                    <select name="genre" class="user-select" id="genre-select"></select>
+                    <select name="genre" class="user-select" id="genre-select">
+                        <option value="all">All</option>
+                    </select>
                 </div>
 
                 <div class="select-group">
                     <label for="year-select">YEAR</label>
-                    <select name="year-select" class="user-select" id="year-select"></select>
+                    <select name="year-select" class="user-select" id="year-select">
+                        <option value="all">All</option>
+                    </select>
                 </div>
-
+                
                 <div class="select-group">
                     <label for="lang-select">LANGUAGE</label>
-                    <select name="lang-select" class="user-select" id="lang-select"></select>
+                    <select name="lang-select" class="user-select" id="lang-select">
+                        <option value="all">All</option>
+                    </select>
                 </div>
             </div>
 
             <div id="rating-group">
                 <label for="rating-select">RATING</label>
-                <select name="rating-select" class="user-select" id="rating-select"></select>
+                <select name="rating-select" class="user-select" id="rating-select">
+                    <option value="all">All</option>
+                    </select>
             </div>
             <!-- <button id="btn">Searh</button> -->
         </div>
@@ -41,14 +50,14 @@
 
         <div class="table">
             <div class="headings">
-                <div class="bg-red w-6 flex hor-center" id="first">RANK</div>
-                <div class="bg-red w-80" id="second">MOVIE</div>
-                <div class="bg-red w-6 flex hor-center" id="third">YEAR</div>
+                <div class="font w-6 flex hor-center" id="first">RANK</div>
+                <div class="font w-80" id="second">MOVIE</div>
+                <div class="font w-6 flex hor-center" id="third">YEAR</div>
             </div>
             <hr>
 
             <div id="movies-container">
-                <div class="movie-row" id="movie-row">
+                <!-- <div class="movie-row" id="movie-row"> -->
                     <!-- <div class="bg-red w-6 flex hor-center" id="rank">1</div>
                     <div class="bg-red w-80" id="movie">Godziulla</div>
                     <div class="bg-red w-6 flex hor-center" id="year">2001</div>

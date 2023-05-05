@@ -114,48 +114,43 @@
             ind++;
             movieRow.innerHTML = `
             <div class="bg-red w-6 flex hor-center" id="rank">${ind}</div>
-            <div class="bg-red w-80" id="movie">
-            <img src="https://image.tmdb.org/t/p/w45${movie.poster_path}" alt="loading...">
-            </div>
-            <div class="bg-red w-6 flex hor-center" id="year">${new Date(movie.release_date).getFullYear()}</div>
-            `
+            <div class="w-80" id="movie">
+                <img src="https://image.tmdb.org/t/p/w45${movie.poster_path}" alt="loading...">
+                <div id="description">
+                    <div id="title">${movie.title}</div>
+                    <div id="second-line">
+                        <span id="certification">${movie.certification}</span>
+                        <span id="genres">${((movie.genres).sort().join(", "))}</span>
+                        <span>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m</span>
+                     </div>
+                     </div>
+                     </div>
+                     <div class="bg-red w-6 flex hor-center" id="year">${new Date(movie.release_date).getFullYear()}</div>
+                     `
+
+            // const secondLine = document.getElementById("second-line");
+            // const cert = document.getElementById("certification");
+            // if (cert === null) {
+            //     // console.log("null")
+            //     // 
+            //     // cert.innerHTML = "";
+            //     // console.log(secondLine, cert)
+            //     secondLine.removeChild(cert);
+            // }
+            // if (results.certification === undefined) {
+            // console.log(cert.textContent);
+            // // results.certification.remove();
+            // }
+
+            const hr = document.createElement("hr");
             moviesContainer.appendChild(movieRow);
+            moviesContainer.appendChild(hr);
             // const first = document.createElement("div");
             // first.setAttribute("id", "anas")
             // movieRow.appendChild(first)
         })
     }
-    //         tableElem.innerHTML = ""
-    //             ind++;
-    //             const tr = document.createElement("tr");
-    //             const td = document.createElement("td");
-    //             td.innerHTML = ind;
-    //             tr.appendChild(td);
-    //             tableElem.appendChild(tr)
-    //             const td1 = document.createElement("td");
-    //             td1.innerHTML = `
-    //             <div class="movie-td">
-    //                 <div class="img-div">
-    //                     <img src="https://image.tmdb.org/t/p/w45${movie.poster_path}" alt="loading...">
-    //                 </div>
-    //                 <div class="description">
-    //                     <div id="movie-title">${movie.title}</div>
-    //                     <div class="lastLine">
-    //                         <div id="certi">${movie.certification}</div>
-    //                         <div>${movie.genres.join(", ")}</div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //             `
-    //             tr.appendChild(td1);
-    //             const date = new Date(movie.release_date);
-    //             const year = date.getFullYear();
-    //             const td2 = document.createElement("td");
-    //             td2.innerHTML = year;
-    //             tr.appendChild(td2);
-    //         })
-    //         // console.log(tableElem)
-    //     }
+
 
     function search() {
         const genreQuery = genreElem.value;
@@ -163,26 +158,26 @@
         const langQuery = langElem.value;
         const ratingQuery = ratingElem.value;
         const results = movies.filter(function (movie) {
-            if (movie.genres.toString().includes(genreQuery) && new Date(movie.release_date).getFullYear() == yearQuery && movie.original_language === langQuery && movie.vote_average.toString().includes(ratingQuery)) {
+            if ((genreQuery === "all" || movie.genres.toString().includes(genreQuery)) && (yearQuery === "all" || new Date(movie.release_date).getFullYear() == yearQuery) && (langQuery === "all" || movie.original_language === langQuery) && (ratingQuery === "all" || movie.vote_average.toString().includes(ratingQuery))) {
                 return true;
-                // console.log(genreQuery)
             }
             // return genreQuery === "all" && yearQuery === "all" && langQuery === "all" && ratingQuery === "all" ||
             //     (movie.genres.toString().includes(genreQuery) && new Date(movie.release_date).getFullYear() == yearQuery && movie.original_language === langQuery && movie.vote_average == ratingQuery)
+            // if(movie.certification === undefined){
+            //     // console.log(new Array(movie.certification))
+            //     console.log(true)
+            // }
         })
         displayResults(results)
         //         // console.log(results1)
-        console.log(results);
+        // console.log(results);
     }
+    // search();
+    // document.addEventListener("load", search);    
 
     const allSelectInput = document.querySelectorAll(".user-select")
 
     allSelectInput.forEach((q) => {
         q.addEventListener("change", search)
     })
-    // search();
-    //     // search();
-    //     // const allSelection = document.getElementsByClassName("user-select");
-
-    //     // btn.addEventListener("click", search)
 })();
