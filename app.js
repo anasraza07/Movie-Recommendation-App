@@ -101,8 +101,6 @@
         optionElem3.innerHTML = ratingList[i];
         ratingElem.appendChild(optionElem3);
     }
-    //     }
-    //     window.addEventListener("load", setOptions());
 
     function displayResults(results) {
         moviesContainer.innerHTML = "";
@@ -119,7 +117,7 @@
                 <div id="description">
                     <div id="title">${movie.title}</div>
                     <div id="second-line">
-                        <span id="certification">${movie.certification}</span>
+                        <span id="certification">${movie.certification || "Not available"}</span>
                         <span id="genres">${((movie.genres).sort().join(", "))}</span>
                         <span>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m</span>
                      </div>
@@ -128,26 +126,9 @@
                      <div class="bg-red w-6 flex hor-center" id="year">${new Date(movie.release_date).getFullYear()}</div>
                      `
 
-            // const secondLine = document.getElementById("second-line");
-            // const cert = document.getElementById("certification");
-            // if (cert === null) {
-            //     // console.log("null")
-            //     // 
-            //     // cert.innerHTML = "";
-            //     // console.log(secondLine, cert)
-            //     secondLine.removeChild(cert);
-            // }
-            // if (results.certification === undefined) {
-            // console.log(cert.textContent);
-            // // results.certification.remove();
-            // }
-
             const hr = document.createElement("hr");
             moviesContainer.appendChild(movieRow);
             moviesContainer.appendChild(hr);
-            // const first = document.createElement("div");
-            // first.setAttribute("id", "anas")
-            // movieRow.appendChild(first)
         })
     }
 
@@ -169,12 +150,8 @@
             // }
         })
         displayResults(results)
-        //         // console.log(results1)
-        // console.log(results);
     }
-    // search();
-    // document.addEventListener("load", search);    
-
+    search();
     const allSelectInput = document.querySelectorAll(".user-select")
 
     allSelectInput.forEach((q) => {
