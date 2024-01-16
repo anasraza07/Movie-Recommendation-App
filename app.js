@@ -1,19 +1,15 @@
 (async function () {
     const response = await fetch("./data.json");
     const movies = await response.json();
-    // console.log(movies)
+
 
     const genreElem = document.getElementById("genre-select");
     const yearElem = document.getElementById("year-select");
     const langElem = document.getElementById("lang-select");
     const ratingElem = document.getElementById("rating-select");
     const moviesContainer = document.getElementById("movies-container");
-    // const movieRow = document.getElementById("movie-row");
-
 
     // GENRES SETTING IN OPTIONS
-    // function setOptions() { }
-    // setOptions();
     let genresList = [];
     movies.forEach(function (val) {
         for (var i = 0; i < val.genres.length; i++) {
@@ -24,13 +20,6 @@
             }
         }
     });
-    // console.log(genresList)
-    // const uniqueGenreList = [];
-    // genresList.forEach(function (g) {
-    // if (!uniqueGenreList.includes(g)) {
-    //     uniqueGenreList.push(g);
-    // }
-    // });
 
     for (var i = 0; i < genresList.length; i++) {
         const optionElem = document.createElement("option");
@@ -48,12 +37,7 @@
             yearList.sort((a, b) => b - a);
         }
     });
-    // const uniqueYearList = [];
-    // yearList.forEach(function (g) {
-    //     if (!uniqueYearList.includes(g)) {
-    //         uniqueYearList.push(g);
-    //     }
-    // });
+
     for (var i = 0; i < yearList.length; i++) {
         const optionElem1 = document.createElement("option");
         optionElem1.innerHTML = yearList[i];
@@ -68,12 +52,7 @@
             langList.sort();
         }
     });
-    // const uniqueLangList = [];
-    // langList.forEach(function (l) {
-    //     if (!uniqueLangList.includes(l)) {
-    //         uniqueLangList.push(l);
-    //     }
-    // });
+
     for (var i = 0; i < langList.length; i++) {
         const optionElem2 = document.createElement("option")
         optionElem2.innerHTML = langList[i]
@@ -88,14 +67,8 @@
             ratingList.push(round);
             ratingList.sort();
         }
-        // ratingList.push(val.vote_average);
     });
-    // const uniqueRatingList = [];
-    // ratingList.forEach(function (r) {
-    //     if (!uniqueRatingList.includes(r)) {
-    //         uniqueRatingList.push(r);
-    //     }
-    // });
+
     for (var i = 0; i < ratingList.length; i++) {
         const optionElem3 = document.createElement("option")
         optionElem3.innerHTML = ratingList[i];
@@ -142,18 +115,13 @@
             if ((genreQuery === "all" || movie.genres.toString().includes(genreQuery)) && (yearQuery === "all" || new Date(movie.release_date).getFullYear() == yearQuery) && (langQuery === "all" || movie.original_language === langQuery) && (ratingQuery === "all" || movie.vote_average.toString().includes(ratingQuery))) {
                 return true;
             }
-            // return genreQuery === "all" && yearQuery === "all" && langQuery === "all" && ratingQuery === "all" ||
-            //     (movie.genres.toString().includes(genreQuery) && new Date(movie.release_date).getFullYear() == yearQuery && movie.original_language === langQuery && movie.vote_average == ratingQuery)
-            // if(movie.certification === undefined){
-            //     // console.log(new Array(movie.certification))
-            //     console.log(true)
-            // }
         })
+        // console.log("results", results)
         displayResults(results)
     }
     search();
-    const allSelectInput = document.querySelectorAll(".user-select")
 
+    const allSelectInput = document.querySelectorAll(".user-select")
     allSelectInput.forEach((q) => {
         q.addEventListener("change", search)
     })
