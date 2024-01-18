@@ -107,6 +107,13 @@ hr {
     margin: 0 4px;
 }
 
+.no-data {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+
+}
+
 @media screen and (max-width:500px) {
     select {
         padding: 4px;
@@ -165,7 +172,8 @@ hr {
     #genres {
         margin: 3px 0;
     }
-    #movie-row{
+
+    #movie-row {
         font-size: .8rem;
     }
 }

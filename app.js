@@ -2,7 +2,6 @@
     const response = await fetch("./data.json");
     const movies = await response.json();
 
-
     const genreElem = document.getElementById("genre-select");
     const yearElem = document.getElementById("year-select");
     const langElem = document.getElementById("lang-select");
@@ -26,7 +25,6 @@
         optionElem.innerHTML = `${genresList[i]}`;
         genreElem.appendChild(optionElem);
     }
-
 
     // YEAR SETTING IN OPTIONS
     let yearList = [];
@@ -75,16 +73,37 @@
         ratingElem.appendChild(optionElem3);
     }
 
-    function displayResults(results) {
-        moviesContainer.innerHTML = "";
-        results.forEach(function (movie, ind) {
+    const itemsPerPage = 10;
+    let page = 1;
+    let postCount = 1;
+    let currentResults = [];
+
+    function displayResults(startIndex, endIndex) {
+        // moviesContainer.innerHTML = "";
+        const resultsChunk = currentResults.slice(startIndex, endIndex);
+        console.log(resultsChunk)
+        if (resultsChunk.length === 0) {
+            console.log(resultsChunk.length)
+            moviesContainer.innerHTML = `
+                <div class="no-data">No Data</div>
+            `
+            moviesContainer.style.margin = "10px 20px"
+            moviesContainer.style.display = "flex"
+            moviesContainer.style.alignItems = "center"
+            moviesContainer.style.justifyContent = "center"
+            moviesContainer.style.height = "35vh"
+            // return;
+        } else {
+            moviesContainer.style = "";
+        }
+        resultsChunk.forEach(function (movie, ind) {
             // console.log(movieRow);
             const movieRow = document.createElement("div");
             // movieRow.classList = ["movie-row"];
             movieRow.setAttribute("id", "movie-row");
             ind++;
             movieRow.innerHTML = `
-            <div class="bg-red w-6 flex hor-center" id="rank">${ind}</div>
+            <div class="bg-red w-6 flex hor-center" id="rank">${postCount++}</div>
             <div class="w-80" id="movie">
                 <img src="https://image.tmdb.org/t/p/w45${movie.poster_path}" alt="loading...">
                 <div id="description">
@@ -102,24 +121,62 @@
             const hr = document.createElement("hr");
             moviesContainer.appendChild(movieRow);
             moviesContainer.appendChild(hr);
+
         })
+
     }
 
+    function loadMore() {
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = page * itemsPerPage;
+
+        displayResults(startIndex, endIndex)
+
+        page++;
+
+        if (endIndex >= currentResults.length || currentResults.length === 0) {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }
+
+    const handleScroll = () => {
+        const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
+        if (scrollTop + clientHeight >= scrollHeight) {
+            setTimeout(() => {
+                console.log("I am at bottom");
+                loadMore();
+            }, 200)
+        }
+    }
+
+    const initInfiniteScroll = () => {
+        window.addEventListener("scroll", handleScroll)
+    }
 
     function search() {
         const genreQuery = genreElem.value;
         const yearQuery = yearElem.value;
         const langQuery = langElem.value;
         const ratingQuery = ratingElem.value;
-        const results = movies.filter(function (movie) {
+
+        currentResults = movies.filter(function (movie) {
             if ((genreQuery === "all" || movie.genres.toString().includes(genreQuery)) && (yearQuery === "all" || new Date(movie.release_date).getFullYear() == yearQuery) && (langQuery === "all" || movie.original_language === langQuery) && (ratingQuery === "all" || movie.vote_average.toString().includes(ratingQuery))) {
                 return true;
             }
         })
         // console.log("results", results)
-        displayResults(results)
+        // displayResults(results, startIndex, endIndex)
+        page = 1;
+        postCount = 1;
+        moviesContainer.innerHTML = "";
+
+        loadMore();
+        initInfiniteScroll();
     }
     search();
+
+    initInfiniteScroll();
+    // loadMore();
 
     const allSelectInput = document.querySelectorAll(".user-select")
     allSelectInput.forEach((q) => {
