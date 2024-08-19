@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&family=IBM+Plex+Sans&display=swap");
+* {
+  box-sizing: border-box;
+}
 
 body {
   background-color: rgb(20, 20, 20);
@@ -13,8 +16,7 @@ header {
 }
 
 .filters {
-  padding: 0 10px;
-  margin-bottom: 30px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -46,12 +48,15 @@ select {
   border-radius: 4px;
 }
 
-.movies {
-  padding: 0 10px;
+.search-results {
+  margin: 20px 30px 30px;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
 }
 
-hr {
-  margin: 12px;
+.movies {
+  padding: 0 20px;
 }
 
 .headings {
@@ -64,12 +69,17 @@ hr {
   font-size: 18px;
 }
 
-.first {
-  width: 6%;
+#movie-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #4a4a4a;
+  padding: 15px 0;
 }
 
-.third {
-  width: 10%;
+.first {
+  min-width: 50px;
+  width: 6%;
+  flex-shrink: 0;
 }
 
 .second {
@@ -77,22 +87,10 @@ hr {
   flex: 1;
 }
 
-#movie-row {
-  /* margin: 10px 20px; */
-  display: flex;
-  /* justify-content: space-around; */
-  align-items: center;
-  border-bottom: 1px solid #4a4a4a;
-  padding: 15px 0;
+.third {
+  width: 10%;
+  min-width: 60px;
 }
-
-/* .w-80 {
-    width: 80%;
-} */
-
-/* .w-6 {
-    width: 6%;
-} */
 
 .flex,
 .hor-center {
@@ -110,7 +108,8 @@ hr {
 }
 
 #description {
-  margin: 0 20px;
+  margin-left: 20px;
+  width: 100%;
 }
 
 #title {
@@ -122,84 +121,149 @@ hr {
 #second-line {
   margin: 8px 0;
   color: #a4a0a0;
+  width: 90%;
 }
 
 #certification {
   border: 2px solid silver;
   padding: 2px 3px;
+  text-align: center;
   border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 4px;
 }
 
 #genres {
-  margin: 0 4px;
+  margin-left: 6px;
+}
+
+#dot-entity {
+  margin: 0 3px;
 }
 
 .no-data {
   font-size: 1.4rem;
   letter-spacing: 2px;
   font-weight: 600;
+  margin: 10px 20px;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media screen and (max-width: 500px) {
-  select {
-    padding: 4px;
+@media screen and (max-width: 800px) {
+  header h1 {
+    font-size: 28px;
   }
 
-  .headings,
+  .filters {
+    padding: 0 20px;
+  }
+
+  .search-results {
+    margin: 15px 25px;
+  }
+
+  .movies {
+    padding: 0 20px;
+  }
+
+  #dot-entity {
+    display: none;
+  }
+
+  #movie-duration {
+    display: block;
+    color: rgb(181, 181, 181);
+  }
+
+  #certification {
+    border: 1px solid silver;
+    border-radius: 4px;
+  }
+
+  #genres {
+    margin-left: 4px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .search-results {
+    font-size: 14px;
+  }
+
+  .headings {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
   #movie-row {
-    margin: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  hr {
-    margin: 6px;
-  }
-
-  .w-80 {
-    width: 70%;
-  }
-
-  #title {
-    font-size: 0.9rem;
-  }
-
-  #description {
-    font-size: 0.8rem;
-  }
-
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  .user-select {
-    font-size: 0.8rem;
-    /* font-family: 'Baloo Bhai 2', cursive; */
-  }
-
-  label {
-    margin: 8px 0;
-    font-size: 0.9rem;
+    padding: 10px 0;
+    font-size: 14px;
   }
 
   #second-line {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
   }
 
-  #certification {
-    border: 2px solid silver;
-    padding: 1px 3px;
-    border-radius: 6px;
-    align-self: flex-start;
+  select {
+    margin: 0;
+    padding: 4px;
+  }
+
+  #title {
+    font-size: 16px;
   }
 
   #genres {
-    margin: 3px 0;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  header h1{
+    font-size: 20px;
+  }
+  .filters {
+    padding: 0 10px;
+  }
+
+  .search-results {
+    margin: 15px 15px;
+  }
+
+  .movies {
+    padding: 0 10px;
+  }
+
+  .headings {
+    font-size: 14px;
   }
 
   #movie-row {
-    font-size: 0.8rem;
+    font-size: 12px;
+  }
+
+  .first {
+    min-width: 45px;
+  }
+
+  .second {
+    padding-left: 12px;
+  }
+
+  .third {
+    min-width: 45px;
+  }
+
+  #title {
+    font-size: 14px;
+  }
+
+  #description {
+    margin-left: 10px;
   }
 }
